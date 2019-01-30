@@ -189,7 +189,7 @@ public class Profile
 		
 		  // Logout thr user
 	 	   Actions d = new Actions(driver);
-	       Thread.sleep(2000);
+	       Thread.sleep(1000);
 	       d.moveToElement(driver.findElement(By.xpath("//a[@class='nav-link profile-login-menu']"))).build().perform();
 	       Thread.sleep(2000);
 	       driver.findElement(By.xpath("//a[contains(text(),'Logout')]")).click();  
