@@ -27,7 +27,7 @@ public class Profile
 		 driver.get("http://duconair.oablab.com/");
 		 driver.manage().window().maximize();
 		 System.out.println(driver.getCurrentUrl());
-		 System.out.println(driver.getTitle());
+		 System.out.println(driver.getTitle()); 
 		 Thread.sleep(2000);
 		 // Clicking on the login button
 		 driver.findElement(By.xpath("//a[contains(text(),'Login')]")).click();
@@ -70,8 +70,8 @@ public class Profile
   	       d.moveToElement(driver.findElement(By.xpath("//a[@class='nav-link profile-login-menu']"))).build().perform();
   	       Thread.sleep(2000);
   	       driver.findElement(By.xpath("//a[contains(text(),'Logout')]")).click();  	      
-  	      Thread.sleep(2000);      
-  	      System.out.println("Tested the login page");
+  	       Thread.sleep(2000);      
+  	       System.out.println("Tested the login page");
   	        	     	      
 	}
 	
