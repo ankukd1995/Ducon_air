@@ -68,13 +68,13 @@ public class Shop
 		 Thread.sleep(2000);
 		 
 		 // Clicking on the product to go to the details page
-		 
+		 /*
 		 driver.findElement(By.xpath("//div[@class='row d-flex justify-content-center']//div[1]//div[1]//div[1]//a[1]//img[1]")).click();
 		 Thread.sleep(2000);
 		 
 		 // Scrolling down the page
 	 int i=0;
-		 while(i<6)
+		 while(i<6) 
 		 {
 			 a.sendKeys(Keys.PAGE_DOWN).build().perform();
 			 i++;
@@ -103,6 +103,7 @@ public class Shop
 		
 		 // Clicking on the add to cart button
 		 driver.findElement(By.xpath("//button[@type='submit']")).click();
+		 */
 		 
 		 // Clciking on the cart icon at the top to into the checkout
 		 Thread.sleep(1500);
@@ -133,14 +134,15 @@ public class Shop
 	       public void deliverypage(WebDriver driver) throws InterruptedException
 	     {
 		
-	    	// Selecting the address from the dropdown
+	    	   // Selecting the address from the dropdown
 	    	
-	    	    Select a = new Select(driver.findElement(By.xpath("//select[@name='billing_select_address']")));
-	    	    a.selectByIndex(0);
-	    	   //driver.findElement(By.xpath("//span[@id='select2-js_billing_select_address-container']")).click();
-	           //Thread.sleep(2000);
-	          // driver.findElement(By.xpath("//span[@class='select2 select2-container select2-container--default select2-container--open select2-container--above']//span[@class='select2-selection select2-selection--single']")).click();
-	    	   
+	    	   // Select a = new Select(driver.findElement(By.xpath("//select[@name='billing_select_address']")));
+	    	   // a.selectByIndex(0);
+	    	    
+	    	   driver.findElement(By.xpath("//span[@id='select2-js_billing_select_address-container']")).click();
+	           Thread.sleep(2000);   
+	                 
+	            driver.findElement(By.xpath("//li[@id='select2-js_billing_select_address-result-n61a-address1']")).click();
 	    	   /*
 	    	   // Entering the billing address
 	    	   driver.findElement(By.xpath("//input[@id='billing_first_name']")).sendKeys("ankush");
