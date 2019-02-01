@@ -21,7 +21,7 @@ public class Shop
 		shipping.cartdetailspage(driver);
 		shipping.deliverypage(driver);
 		
-
+ 
 	}
 
 	public void shopping(WebDriver driver) throws InterruptedException
@@ -32,6 +32,16 @@ public class Shop
 		 System.out.println(driver.getCurrentUrl());
 		 System.out.println(driver.getTitle());
 		 Thread.sleep(2000);
+		 
+		 // log in the user
+		 driver.findElement(By.xpath("//a[contains(text(),'Login')]")).click();
+		 Thread.sleep(2000);
+		 driver.findElement(By.xpath("//input[@id='js-login_email']")).sendKeys("oabtest@mailinator.com");
+ 	      driver.findElement(By.xpath("//input[@id='js-login_pass']")).sendKeys("ankush");
+ 	      Thread.sleep(1000);
+ 	      driver.findElement(By.xpath("//button[@id='js-login-submit']")).click();
+ 	      Thread.sleep(2000);
+		 
 		 
 		 // Clicking on the shop button
 		 driver.findElement(By.xpath("//a[@href='http://duconair.oablab.com/shop/']")).click();
@@ -59,7 +69,7 @@ public class Shop
 		 
 		 // Clicking on the product to go to the details page
 		 
-		 driver.findElement(By.xpath("//div[@class='row']//div[4]//div[1]//div[1]//a[1]//img[1]")).click();
+		 driver.findElement(By.xpath("//div[@class='row d-flex justify-content-center']//div[1]//div[1]//div[1]//a[1]//img[1]")).click();
 		 Thread.sleep(2000);
 		 
 		 // Scrolling down the page
@@ -111,7 +121,7 @@ public class Shop
 		Thread.sleep(1000);
 		// Updating the cart
 		driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div[2]/form[1]/div[2]/button")).click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		//Deleting the product
 		driver.findElement(By.xpath("//tbody//tr[1]//td[5]//a[1]//span[1]")).click();
 		Thread.sleep(3000);
@@ -123,13 +133,15 @@ public class Shop
 	       public void deliverypage(WebDriver driver) throws InterruptedException
 	     {
 		
-	    	  // Entering the login details
-	    	   driver.findElement(By.xpath("//input[@id='js-login_email']")).sendKeys("testingone@mailinator.com");
-	    	   driver.findElement(By.xpath("//input[@id='js-login_pass']")).sendKeys("ankush");
-	    	   Thread.sleep(2000);
-	    	   driver.findElement(By.xpath("//button[@id='js-login-submit']")).click();
-	    	   Thread.sleep(2000);
+	    	// Selecting the address from the dropdown
+	    	
+	    	    Select a = new Select(driver.findElement(By.xpath("//select[@name='billing_select_address']")));
+	    	    a.selectByIndex(0);
+	    	   //driver.findElement(By.xpath("//span[@id='select2-js_billing_select_address-container']")).click();
+	           //Thread.sleep(2000);
+	          // driver.findElement(By.xpath("//span[@class='select2 select2-container select2-container--default select2-container--open select2-container--above']//span[@class='select2-selection select2-selection--single']")).click();
 	    	   
+	    	   /*
 	    	   // Entering the billing address
 	    	   driver.findElement(By.xpath("//input[@id='billing_first_name']")).sendKeys("ankush");
 	    	   driver.findElement(By.xpath("//input[@id='billing_last_name']")).sendKeys("ankush");
@@ -152,9 +164,7 @@ public class Shop
 	    	   driver.findElement(By.xpath("//input[@id='billing_postcode']")).sendKeys("444444");
 	    	   driver.findElement(By.xpath("//input[@id='billing_phone']")).sendKeys("1234123432");
 	    	   driver.findElement(By.xpath("//input[@id='billing_email']")).sendKeys("test@mailinator.com");
-
-	  	  
-	   	   
+               */
 	    	   
 	     }
 	

@@ -46,7 +46,7 @@ public class Profile
   	      driver.findElement(By.xpath("//input[@id='js-login_pass']")).sendKeys("ankush123423");
   	      Thread.sleep(1000);
   	       driver.findElement(By.xpath("//button[@id='js-login-submit']")).click();
-  	     Thread.sleep(2000);
+  	      Thread.sleep(2000);
   	     
   	     // Printing th error message
   	      String c =driver.findElement(By.xpath("//span[@id='common_error_login']")).getText();
