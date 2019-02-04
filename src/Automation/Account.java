@@ -16,6 +16,8 @@ public class Account
 		WebDriver driver = new ChromeDriver();
 		Account acc = new Account();
 		acc.profile(driver);
+		acc.address(driver);
+		acc.myorders(driver);
 		
 
 	}
@@ -97,7 +99,51 @@ public class Account
   	         Thread.sleep(1000);  
   	         String g = driver.findElement(By.xpath("//span[@id='error_old_pass']")).getText();
   	         System.out.println("old password wrong error message:" + g);
-	      		  
+  	         Thread.sleep(2000); 
+  	         
+  	         // Clearing the fields
+  	         driver.findElement(By.xpath("//input[@id='user_old_pass']")).clear();
+	         driver.findElement(By.xpath("//input[@id='user_new_pass']")).clear();
+	         driver.findElement(By.xpath("//input[@id='user_confirm_pass']")).clear();
+	         Thread.sleep(2000); 
+  	         driver.findElement(By.xpath("//input[@id='user_old_pass']")).sendKeys("ankush");
+	         driver.findElement(By.xpath("//input[@id='user_new_pass']")).sendKeys("ankush"); 
+	         driver.findElement(By.xpath("//input[@id='user_confirm_pass']")).sendKeys("ankush");
+	         Thread.sleep(1000); 
+	         driver.findElement(By.xpath("//button[@id='js-change-user-pass']")).click();	
+	         Thread.sleep(3000);
+	        
+	         // log in the user
+			 driver.findElement(By.xpath("//a[contains(text(),'Login')]")).click();
+			 Thread.sleep(2000);
+			 driver.findElement(By.xpath("//input[@id='js-login_email']")).sendKeys("testfive@mailinator.com");
+	 	      driver.findElement(By.xpath("//input[@id='js-login_pass']")).sendKeys("ankush");
+	 	      Thread.sleep(1000);
+	 	      driver.findElement(By.xpath("//button[@id='js-login-submit']")).click();
+	 	      Thread.sleep(2000);
+	 	      
+	 	      // Clicking on the profile
+	 	       Actions z = new Actions(driver);
+	  	       Thread.sleep(2000);
+	  	       z.moveToElement(driver.findElement(By.xpath("//a[@class='nav-link profile-login-menu']"))).build().perform();
+	  	       Thread.sleep(2000);
+	  	       driver.findElement(By.xpath("//a[contains(text(),'Profile')]")).click();  	      
+	  	       Thread.sleep(2000);  
+	         
 	}
+	  
+	  public void address(WebDriver driver) throws InterruptedException
+	  {
+		  driver.findElement(By.xpath("//ul[@class='nav nav-tabs']//a[contains(text(),'Addresses')]")).click();
+		  Thread.sleep(2000);  
+		  
+	  }
 	
+	  
+	   public void myorders(WebDriver driver) throws InterruptedException
+	  {
+		   driver.findElement(By.xpath("//ul[@class='nav nav-tabs']//a[contains(text(),'My Orders')]")).click();
+		   Thread.sleep(2000);  
+		   
+	  }
 }
