@@ -35,20 +35,7 @@ public class Homepage {
 		driver.findElement(By.xpath("//a[@href='http://duconair.oablab.com/shop/']")).click();
 		driver.navigate().back();
 		Thread.sleep(3000);
-		
-		// Clicking on the support button
-		
-		driver.findElement(By.xpath("//a[@href='http://duconair.oablab.com/faq/']")).click();
-		Thread.sleep(1000);	
-		driver.navigate().back();	
-		
-		// Clicking on the about button
-		
-		driver.findElement(By.xpath("//a[@href='http://duconair.oablab.com/about/']")).click();
-		Thread.sleep(1500);	
-		driver.navigate().back();
-		Thread.sleep(1500);	
-
+	
 		// Clicking on the cart button
 		
 		driver.findElement(By.xpath("//*[@id=\"navbarNavDropdown\"]/div/ul/li[1]/a")).click();
@@ -113,24 +100,11 @@ public class Homepage {
 				driver.findElement(By.xpath("//a[@href='/faq']")).click();
 				Thread.sleep(1000);	
 				driver.navigate().back();
-				
-				// Clicking on the about button
-				
-				driver.findElement(By.xpath("//a[@href='/about/']")).click();
-				Thread.sleep(3000);	
-				driver.navigate().back();
-				
+					
 				// Clicking on the Contact
 				
 				driver.findElement(By.xpath("//a[contains(text(),'Contact')]")).click();
 				Thread.sleep(3000);		
-				driver.navigate().back();
-				
-				
-				// Clicking on the cart button
-				
-				driver.findElement(By.xpath("//a[@href='/cart/']")).click();
-				Thread.sleep(3000);	
 				driver.navigate().back();
 				
 				// Clicking on the terms
@@ -149,9 +123,10 @@ public class Homepage {
 				
 				// Clicking on the footer logo
 				Thread.sleep(2000);	
-				driver.findElement(By.xpath("//span[@class='bg-footer-logo']")).click();
+				driver.findElement(By.xpath("/html/body/div/footer/div/div[1]/a/img")).click();
 				 
-		 }		 
+		 }		
+		 
 		 	
 		 public void functionality(WebDriver driver) throws InterruptedException
 		 {
@@ -177,19 +152,7 @@ public class Homepage {
 			 Thread.sleep(1000);
 			 
 			 e.sendKeys(Keys.PAGE_DOWN).build().perform();
-			 
-			 // Clicking on the shop button
-			 driver.findElement(By.xpath("//div[@class='center-image-section-left']//a[@class='btn-third'][contains(text(),'SHOP NOW')]")).click();
-			 Thread.sleep(2000);
-			 driver.navigate().back();
-			 Thread.sleep(1000);
-			 int i=0;
-			 while(i<3)
-			 {
-			 e.sendKeys(Keys.PAGE_DOWN).build().perform();
-			 i++;
-			 Thread.sleep(1000);
-			 }
+			
 			 
 			 
 		 }

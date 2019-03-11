@@ -17,7 +17,7 @@ public class Account
 		Account acc = new Account();
 		acc.profile(driver);
 		acc.address(driver);
-		acc.myorders(driver);
+		acc.myorders(driver); 
 		
 
 	}
@@ -45,10 +45,10 @@ public class Account
 	  	       d.moveToElement(driver.findElement(By.xpath("//a[@class='nav-link profile-login-menu']"))).build().perform();
 	  	       Thread.sleep(2000);
 	  	       driver.findElement(By.xpath("//a[contains(text(),'Profile')]")).click();  	      
-	  	       Thread.sleep(2000);  
+	  	       Thread.sleep(2000);   
 	  	       
 	  	       //going into the edit mode of the
-	  	       driver.findElement(By.xpath("//div[@class='col-12 top-heading']//a[@class='btn-third edit-btn'][contains(text(),'EDIT')]")).click();
+	  	       driver.findElement(By.xpath("//*[@id=\"profile\"]/div/div[1]/div/a")).click();
 	  	       Thread.sleep(2000);  
 	  	       
 	  	       // Edting the first name last name
@@ -63,16 +63,18 @@ public class Account
 	  	     // Clicking on the save button
 	  	     driver.findElement(By.xpath("//a[@id='js-profile-save-btn']")).click();
 	  	    Thread.sleep(2000);  
+	  	    
 	  	     // Editing the profile for the change password
-	  	      driver.findElement(By.xpath("//div[@class='col-12 top-heading']//a[@class='btn-third edit-btn'][contains(text(),'EDIT')]")).click();
+	  	      driver.findElement(By.xpath("//*[@id=\"profile\"]/div/div[2]/div[7]/a")).click();
   	          Thread.sleep(2000);  
   	   
   	          Actions a = new Actions(driver);
   	          a.sendKeys(Keys.PAGE_DOWN).build().perform();
   	          
   	         Thread.sleep(2000);
+  	         
   	          // Clicking on the change passowrd link
-  	          driver.findElement(By.xpath("//a[@class='change--pwd']")).click();
+  	          driver.findElement(By.xpath("//*[@id=\"js-change-user-pass\"]")).click();
   	          Thread.sleep(1000);
   	          
   	          // clicking on the change password button'
@@ -138,12 +140,19 @@ public class Account
 		  Thread.sleep(2000);  
 		  
 	  }
-	
+	 
 	  
 	   public void myorders(WebDriver driver) throws InterruptedException
 	  {
 		   driver.findElement(By.xpath("//ul[@class='nav nav-tabs']//a[contains(text(),'My Orders')]")).click();
 		   Thread.sleep(2000);  
+		   
+		   // Logging out the user
+		   
+		   Actions a = new Actions(driver);
+		   a.moveToElement(driver.findElement(By.xpath("//a[@class='nav-link profile-login-menu']"))).build().perform();
+		   Thread.sleep(1500);
+		   driver.findElement(By.xpath("//*[@id=\"navbarNavDropdown\"]/div/ul/li[2]/div/div/ul/li[4]/a")).click();
 		   
 	  }
 }

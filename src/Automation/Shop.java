@@ -53,23 +53,27 @@ public class Shop
 		 Actions a = new Actions(driver);
 		 a.sendKeys(Keys.PAGE_DOWN).build().perform();
 	     
-		 // Adding the product in the cart
+		 // Adding the product in the cart 
 		 Thread.sleep(1000);
-		 driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/div[1]/div/div/div/div[2]/div[2]/div/a")).click();
+		 driver.findElement(By.xpath("/html/body/div/div[2]/div/div/div[1]/div[2]/div/div/a")).click();
 		 Thread.sleep(2000);
 		 
 		 // Adding the product in the cart
-		 driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/div[2]/div/div/div/div[2]/div[2]/div/a")).click();
+		 driver.findElement(By.xpath("/html/body/div/div[2]/div/div/div[2]/div[2]/div/div/a[1]")).click();
 		 Thread.sleep(2000);
 		 
-		 
+		  
 		 // Adding the product in the cart
-		 driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/div[3]/div/div/div/div[2]/div[2]/div/a")).click();
+		 driver.findElement(By.xpath("/html/body/div/div[2]/div/div/div[3]/div[2]/div/div/a")).click();
 		 Thread.sleep(2000);
+		 
+		 // Scrolling on the top
+		 a.sendKeys(Keys.PAGE_UP).build().perform();
+		 Thread.sleep(1000);
 		 
 		 // Clicking on the product to go to the details page
-		 /*
-		 driver.findElement(By.xpath("//div[@class='row d-flex justify-content-center']//div[1]//div[1]//div[1]//a[1]//img[1]")).click();
+		
+		 driver.findElement(By.xpath("//div[@class='row d-flex justify-content-center']//div[1]//a[1]//img[1]")).click();
 		 Thread.sleep(2000);
 		 
 		 // Scrolling down the page
@@ -103,7 +107,7 @@ public class Shop
 		
 		 // Clicking on the add to cart button
 		 driver.findElement(By.xpath("//button[@type='submit']")).click();
-		 */
+		
 		 
 		 // Clciking on the cart icon at the top to into the checkout
 		 Thread.sleep(1500);
@@ -142,9 +146,10 @@ public class Shop
 	    	   driver.findElement(By.xpath("//span[@id='select2-js_billing_select_address-container']")).click();
 	           Thread.sleep(2000);   
 	                 
-	            driver.findElement(By.xpath("//li[@id='select2-js_billing_select_address-result-n61a-address1']")).click();
-	    	   /*
+	            //driver.findElement(By.xpath("//li[@id='select2-js_billing_select_address-result-66os-address1']")).click();
+	    	 
 	    	   // Entering the billing address
+	           
 	    	   driver.findElement(By.xpath("//input[@id='billing_first_name']")).sendKeys("ankush");
 	    	   driver.findElement(By.xpath("//input[@id='billing_last_name']")).sendKeys("ankush");
 	    	   driver.findElement(By.xpath("//input[@id='billing_company']")).sendKeys("Cemtrexlabs");
@@ -160,13 +165,18 @@ public class Shop
 	    	   Thread.sleep(2000);
 	    	   a.selectByVisibleText("India");
 	    	   // Selecting the state
-	    	    Select b = new Select(driver.findElement(By.cssSelector("#billing_state")));
-	    	    b.selectByVisibleText("Barguna");
+	    	   // Select b = new Select(driver.findElement(By.cssSelector("#billing_state")));
+	    	    //b.selectByVisibleText("Barguna");
 	    	   
 	    	   driver.findElement(By.xpath("//input[@id='billing_postcode']")).sendKeys("444444");
 	    	   driver.findElement(By.xpath("//input[@id='billing_phone']")).sendKeys("1234123432");
 	    	   driver.findElement(By.xpath("//input[@id='billing_email']")).sendKeys("test@mailinator.com");
-               */
+	    	   Thread.sleep(2000);
+	    	   Actions b = new Actions(driver);
+	    	   b.sendKeys(Keys.PAGE_UP).build().perform();
+	    	   Thread.sleep(2000);
+	    	   driver.findElement(By.xpath("//button[@class='btn-third review-btn d-md-block d-none']")).click();
+               
 	    	   
 	     }
 	

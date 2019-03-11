@@ -48,7 +48,7 @@ public class Profile
   	       driver.findElement(By.xpath("//button[@id='js-login-submit']")).click();
   	      Thread.sleep(2000);
   	     
-  	     // Printing th error message
+  	     // Printing the error message
   	      String c =driver.findElement(By.xpath("//span[@id='common_error_login']")).getText();
   	      System.out.println("Common message of the login :" +c);
  		  Thread.sleep(2000);
@@ -173,6 +173,7 @@ public class Profile
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//button[@id='js-register-submit']")).click();
 		Thread.sleep(1000);
+		
 		// Printing the common error message
 		
 		String p = driver.findElement(By.xpath("//span[@id='common_error_register']")).getText();
@@ -181,19 +182,20 @@ public class Profile
 		// Entering the new email and registering the user
 		driver.findElement(By.xpath("//input[@id='js-register_email']")).clear();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("//input[@id='js-register_email']")).sendKeys("ankus5435jhjh@mailinator.com");
+		driver.findElement(By.xpath("//input[@id='js-register_email']")).sendKeys("ankus5efhjh@mailinator.com");
 		Thread.sleep(1000);
-		
+		driver.findElement(By.xpath("//*[@id=\"js-register_firstname\"]")).sendKeys("Ankush");
+		driver.findElement(By.xpath("//*[@id=\"js-register_lastname\"]")).sendKeys("Pawar");
+
 		// Cliking on the register button
 		   driver.findElement(By.xpath("//button[@id='js-register-submit']")).click();
-		
-		  // Logout thr user
-	 	   Actions d = new Actions(driver);
-	       Thread.sleep(1000);
-	       d.moveToElement(driver.findElement(By.xpath("//a[@class='nav-link profile-login-menu']"))).build().perform();
-	       Thread.sleep(2000);
-	       driver.findElement(By.xpath("//a[contains(text(),'Logout')]")).click();  
-
+		 
+		  // Logout the user
+		   Actions d = new Actions(driver);
+  	       Thread.sleep(2000);
+  	       d.moveToElement(driver.findElement(By.xpath("//a[@class='nav-link profile-login-menu']"))).build().perform();
+  	       Thread.sleep(2000);
+  	       driver.findElement(By.xpath("//a[contains(text(),'Logout')]")).click();  
 		
 	}
 	
