@@ -16,7 +16,7 @@ public class Support
 		WebDriver driver = new ChromeDriver();
 		Support supp = new Support ();
 		supp.testsupport(driver);
-	}
+	} 
 
 	 public void testsupport(WebDriver driver) throws InterruptedException
 	{
@@ -26,13 +26,24 @@ public class Support
 		 System.out.println("Title of the page is:"+ driver.getTitle());
 		 
 		 System.out.println("\n");
+		 Thread.sleep(2000); 
+		 
+		 Actions a = new Actions(driver);
+		 
+		 for(int i=0; i<10; i++) 
+		 {
+		 a.sendKeys(Keys.PAGE_DOWN).build().perform();
+		 i++;
+		 Thread.sleep(1000);
+		 }  
+		 
 		 Thread.sleep(2000);
-		 driver.findElement(By.xpath("//a[@href='http://duconair.oablab.com/faq/']")).click();
+		 driver.findElement(By.xpath("//a[contains(text(),'FAQs')]")).click();
 		 System.out.println("Url of the FAQ page is:" + driver.getCurrentUrl());
 		 System.out.println("Title of the FAQ page is:"+ driver.getTitle());
 		 Thread.sleep(2000);
 		 
-		// Printing the text title
+		// Printing the text title 
 		 System.out.println("\n");
 		 System.out.println("Text title of the page:" + driver.findElement(By.xpath("//h1[contains(text(),'FAQ')]")).getText());
 		 System.out.println("\n");
@@ -47,8 +58,8 @@ public class Support
 		 System.out.println("\n");
 		
 		 // Scrolling down the page
-		 Actions a = new Actions(driver);
-		 a.sendKeys(Keys.PAGE_DOWN).build().perform();
+		 Actions s = new Actions(driver);
+		 s.sendKeys(Keys.PAGE_DOWN).build().perform();
 		 Thread.sleep(2000);
 		 
 		

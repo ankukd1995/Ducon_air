@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 public class StaticPages {
 
@@ -18,7 +19,7 @@ public class StaticPages {
 		stac.contact(driver);
 		stac.privacy(driver);
 		stac.terms(driver);
-
+ 
 	}
 
 	public void contact(WebDriver driver) throws InterruptedException
@@ -52,18 +53,35 @@ public class StaticPages {
 			  
 			  //Scrolling on the contact page
 			  int j=0;
-			  while(j<2)
+			  while(j<1)
 			  {
 				  a.sendKeys(Keys.PAGE_DOWN).build().perform();
 				  j++;
 				  Thread.sleep(1000);
 				  
 			  }	 
+			  Thread.sleep(2000);   
+			 
+			  
+			  // Filling the conatct form and subbmitting the button
+			  
+			  driver.findElement(By.xpath("//input[@name='contact_firstname']")).sendKeys("Ankush");
+			  driver.findElement(By.xpath("//input[@name='contact_lastname']")).sendKeys("Pawar");
+			  driver.findElement(By.xpath("//input[@name='contact_email']")).sendKeys("apawar@cemtrexlabs.com");
+			  Thread.sleep(1500);
+			  Select b = new Select(driver.findElement(By.xpath("//select[@id='contact_reason']")));
+			  b.selectByIndex(1);
+			  Thread.sleep(2500);
+			  
+			  // Writing the message in the message box
+			  driver.findElement(By.xpath("//textarea[@name='contact_message']")).sendKeys("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
+			  Thread.sleep(1000);
+			  // Clicking on the Submigt button
+			  
+			  driver.findElement(By.xpath("//a[@id='js-contact_submit_btn']")).click();
 			  Thread.sleep(2000);
-			  // Printing the text on the page
-			  System.out.println("Text on the contact page: " + driver.findElement(By.xpath("//div[@class='top-right']")).getText());
-			  System.out.println("Contact page is tested");
-			  System.out.println("\n");
+			  
+			  
 		  
 	}
 	
@@ -133,7 +151,7 @@ public class StaticPages {
 				  System.out.println("Terms page is tested");
 				  // Clicking on the footer logo
 					 
-					 driver.findElement(By.xpath("//span[@class='bg-footer-logo']")).click();
+					// driver.findElement(By.xpath("//span[@class='bg-footer-logo']")).click();
 	    	
 	   }
 	   
