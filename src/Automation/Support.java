@@ -47,7 +47,7 @@ public class Support
 		 System.out.println("\n");
 		 System.out.println("Text title of the page:" + driver.findElement(By.xpath("//h1[contains(text(),'FAQ')]")).getText());
 		 System.out.println("\n");
-		 // Printing the text of the first FAQ
+		 // Printing the text of the first FAQ 
 		 System.out.println("First FAQ content :" + driver.findElement(By.xpath("//div[@class='inner-body']//ul//li[1]")).getText());
 		 System.out.println("\n");
 		 
